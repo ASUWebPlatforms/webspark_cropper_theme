@@ -1,0 +1,1 @@
+# webspark_cropper_theme
