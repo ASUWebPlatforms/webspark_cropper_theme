@@ -1,5 +1,5 @@
-name: WebSpark Cropper Overrides
-description: Fixes for cropper
+name: WebSpark Image Cropper
+description: Adds cropping capabilities to media images.
 package: WebSpark
 
 type: module
