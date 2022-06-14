@@ -213,7 +213,7 @@ function webspark_cropper_theme_preprocess_fieldset__media_library_widget(array 
  * Implements hook_theme_registry_alter().
  */
 function webspark_cropper_theme_theme_registry_alter(&$theme_registry) {
-  $media_library_theme_reset_path = drupal_get_path('module', 'webspark_cropper_theme') . '/templates';
+    $media_library_theme_reset_path = \Drupal::service('extension.list.module')->getPath('webspark_cropper_theme') . '/templates';
 
   // Add media-library templates directly copied from Classy/Seven.
   $theme_registry['views_view__media_library__widget'] = $theme_registry['views_view'];
@@ -342,7 +342,7 @@ function webspark_cropper_theme_library_info_alter(&$libraries) {
   if (isset($libraries['seven.drupal.dialog'])) {
     // We have a need to override the modal css in Drupal. Here we are altering
     // the path to the css and replacing it in this module with a new version.
-    $updated_css_path = '/' . drupal_get_path('module', 'webspark_cropper_theme');
+    $updated_css_path = '/' . \Drupal::service('extension.list.module')->getPath('webspark_cropper_theme');
     unset($libraries['seven.drupal.dialog']['css']);
     $libraries['seven.drupal.dialog']['css']['theme'] = [$updated_css_path . '/css/dialog-overrides.css' => []];
   }
